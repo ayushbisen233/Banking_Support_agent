@@ -71,4 +71,5 @@ with gr.Blocks(title="Banking AI Agent") as demo:
     send_btn.click(respond, [msg, chatbot], [msg, chatbot, activity_panel])
 
 if __name__ == "__main__":
-    demo.launch(theme=gr.themes.Soft())
+    port = int(os.environ.get("PORT", 7860))
+    demo.launch(theme=gr.themes.Soft(), server_name="0.0.0.0", server_port=port)
